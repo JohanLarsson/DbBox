@@ -22,10 +22,11 @@ namespace DbBoxTests
                     dummyContext.Countries.Add(country);
                     dummyContext.SaveChanges();
                 }
+                country = dummyContext.Countries.Single(x => x.Id == "SE");
                 var stockList = new StockList() { Country = country, Id = "List1", Name = "List1Name" };
-                dummyContext.Countries.Single(x=>x.Id==country.Id).Lists.Add(stockList);
+                //dummyContext.Countries.Single(x=>x.Id==country.Id).Lists.Add(stockList);
 
-                //dummyContext.StockLists.Add(stockList);
+                dummyContext.StockLists.Add(stockList);
                 dummyContext.SaveChanges();
             }
         }
