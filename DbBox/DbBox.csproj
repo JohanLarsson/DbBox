@@ -54,8 +54,17 @@
     <Compile Include="Migrations\201307270759387_Fluent.Designer.cs">
       <DependentUpon>201307270759387_Fluent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201307282058575_Stock.cs" />
+    <Compile Include="Migrations\201307282058575_Stock.Designer.cs">
+      <DependentUpon>201307282058575_Stock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307282154533_More bs.cs" />
+    <Compile Include="Migrations\201307282154533_More bs.Designer.cs">
+      <DependentUpon>201307282154533_More bs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stock.cs" />
     <Compile Include="StockList.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +77,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201307270759387_Fluent.resx">
       <DependentUpon>201307270759387_Fluent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307282058575_Stock.resx">
+      <DependentUpon>201307282058575_Stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307282154533_More bs.resx">
+      <DependentUpon>201307282154533_More bs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -16,9 +16,15 @@ namespace DbBox
         {
             modelBuilder.Entity<Country>().HasKey(x => x.Id);
             modelBuilder.Entity<Country>().HasMany(x => x.Lists);
+            modelBuilder.Entity<Country>().HasMany(x => x.Stocks);
 
             modelBuilder.Entity<StockList>().HasKey(x => x.Id);
             modelBuilder.Entity<StockList>().HasRequired(x => x.Country);
+            modelBuilder.Entity<StockList>().HasMany(x => x.Stocks);
+
+            modelBuilder.Entity<Stock>().HasKey(x => x.Id);
+            modelBuilder.Entity<Stock>().HasRequired(x => x.List);
+            modelBuilder.Entity<Stock>().HasRequired(x => x.Country);
             base.OnModelCreating(modelBuilder);
         }
     }
