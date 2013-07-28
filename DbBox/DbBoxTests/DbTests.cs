@@ -16,18 +16,25 @@ namespace DbBoxTests
         {
             using (var dummyContext = new DummyContext())
             {
-                var country = new Country() { Id = "SE", Name = "Sweden" };
-                if (!dummyContext.Countries.Any(x => x.Id == country.Id))
+                const string countryId = "SE";
+                string listId = "ListId";
+                if (!dummyContext.Countries.Any(x => x.Id == countryId))
                 {
+                    var country = new Country() { Id = countryId, Name = "Sweden" };
                     dummyContext.Countries.Add(country);
                     dummyContext.SaveChanges();
                 }
-                country = dummyContext.Countries.Single(x => x.Id == "SE");
-                var stockList = new StockList() { Country = country, Id = "List1", Name = "List1Name" };
-                //dummyContext.Countries.Single(x=>x.Id==country.Id).Lists.Add(stockList);
-
-                dummyContext.StockLists.Add(stockList);
-                dummyContext.SaveChanges();
+                if (!dummyContext.StockLists.Any(x => x.Id == listId))
+                {
+                    var country = dummyContext.Countries.Single(x => x.Id == countryId);
+                    var stockList = new StockList() { Country = country, Id = listId, Name = "List1Name" };
+                    dummyContext.StockLists.Add(stockList);
+                    dummyContext.SaveChanges();
+                }
+                Assert.AreEqual(countryId, dummyContext.Countries.Single().Id);
+                Assert.AreEqual(countryId, dummyContext.StockLists.Single().Country.Id);
+                Assert.AreEqual(listId, dummyContext.StockLists.Single().Id);
+                Assert.AreEqual(listId,dummyContext.Countries.Single().Lists.Single().Id);
             }
         }
 
