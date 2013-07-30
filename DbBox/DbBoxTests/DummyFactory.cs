@@ -13,13 +13,13 @@ namespace DbBoxTests
         private static StockList _dummyList1;
         public static StockList List1
         {
-            get { return _dummyList1 ?? (_dummyList1 = new StockList { Country = Country, Id = "XX_List1Id_XX", Name = "XX_List1Name_XX" }); }
+            get { return _dummyList1 ?? (_dummyList1 = new StockList("XX_List1Id_XX", "XX_List1Name_XX", Country)); }
         }
 
         private static StockList _dummyList2;
         public static StockList List2
         {
-            get { return _dummyList2 ?? (_dummyList2 = new StockList { Country = Country, Id = "XX_List2Id_XX", Name = "XX_List2Name_XX" }); }
+            get { return _dummyList2 ?? (_dummyList2 = new StockList("XX_List2Id_XX", "XX_List2Name_XX", Country)); }
         }
 
         public static StockList[] Lists
@@ -49,25 +49,25 @@ namespace DbBoxTests
         private static Stock _stock11;
         public static Stock Stock11
         {
-            get { return _stock11 ?? (_stock11 = new Stock { Id = 99911999, Name = "XX_Stock11Name_XX" }); }
+            get { return _stock11 ?? (_stock11 = new Stock(99911999, "XX_Stock11Name_XX")); }
         }
 
         private static Stock _stock12;
         public static Stock Stock12
         {
-            get { return _stock12 ?? (_stock12 = new Stock { Id = 99912999, Name = "XX_Stock12Name_XX" }); }
+            get { return _stock12 ?? (_stock12 = new Stock(99912999, "XX_Stock12Name_XX")); }
         }
 
         private static Stock _stock21;
         public static Stock Stock21
         {
-            get { return _stock21 ?? (_stock21 = new Stock { Id = 99921999, Name = "XX_Stock21Name_XX" }); }
+            get { return _stock21 ?? (_stock21 = new Stock(99921999, "XX_Stock21Name_XX")); }
         }
 
         private static Stock _stock22;
         public static Stock Stock22
         {
-            get { return _stock22 ?? (_stock22 = new Stock { Id = 99922999, Name = "XX_Stock22Name_XX" }); }
+            get { return _stock22 ?? (_stock22 = new Stock(99922999, "XX_Stock22Name_XX")); }
         }
 
         public static Stock[] Stocks

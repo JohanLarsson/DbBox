@@ -10,9 +10,17 @@ namespace DbBox
 {
     public class Stock
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        protected Stock() { }
+
+        public Stock(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
+        public int Id { get; private set; }
+        public string Name { get; private set; }
         public virtual StockList List { get; set; }
-        public virtual Sector Sector { get; set; }
+        public virtual Sector Sector { get; private set; }
     }
 }
