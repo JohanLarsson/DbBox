@@ -83,19 +83,24 @@ namespace DbBoxTests
             }
         }
 
+        private static Stock[] _stocksWithLists;
         public static Stock[] StocksWithLists
         {
             get
             {
-                var stock11 = Stock11;
-                stock11.List = List1;
-                var stock12 = Stock12;
-                stock12.List = List1;
-                var stock21 = Stock21;
-                stock21.List = List2;
-                var stock22 = Stock22;
-                stock22.List = List2;
-                return new[] { stock11, stock12, stock21, stock22 };
+                if (_stocksWithLists == null)
+                {
+                    var stock11 = Stock11;
+                    stock11.List = List1;
+                    var stock12 = Stock12;
+                    stock12.List = List1;
+                    var stock21 = Stock21;
+                    stock21.List = List2;
+                    var stock22 = Stock22;
+                    stock22.List = List2;
+                    _stocksWithLists = new[] { stock11, stock12, stock21, stock22 };
+                }
+                return _stocksWithLists;
             }
         }
     }

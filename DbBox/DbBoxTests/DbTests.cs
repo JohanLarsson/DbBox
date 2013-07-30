@@ -70,6 +70,7 @@ namespace DbBoxTests
                 context.SaveChanges();
             }
             AssertEf.AssertStocks(DummyFactory.StocksWithLists);
+            AssertEf.AssertLists(DummyFactory.ListsWithStocks);
         }
 
         [Test]
