@@ -5,13 +5,13 @@ namespace DbBox.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class Stock : IMigrationMetadata
+    public sealed partial class None : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Stock));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(None));
         
         string IMigrationMetadata.Id
         {
-            get { return "201307282058575_Stock"; }
+            get { return "201307300135551_None"; }
         }
         
         string IMigrationMetadata.Source
