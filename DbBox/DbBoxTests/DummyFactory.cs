@@ -32,6 +32,25 @@ namespace DbBoxTests
             get { return new[] { List1, List2 }; }
         }
 
+        private static StockList[] _listsWithStocks;
+        public static StockList[] ListsWithStocks
+        {
+            get
+            {
+                if (_listsWithStocks == null)
+                {
+                    var list1 = List1;
+                    list1.Stocks.Add(Stock11);
+                    list1.Stocks.Add(Stock12);
+                    var list2 = List2;
+                    list2.Stocks.Add(Stock21);
+                    list2.Stocks.Add(Stock22);
+                    _listsWithStocks = new[] { list1, list2 };
+                }
+                return _listsWithStocks;
+            }
+        }
+
         private static Stock _stock11;
         public static Stock Stock11
         {
