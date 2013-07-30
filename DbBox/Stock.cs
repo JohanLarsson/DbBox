@@ -12,6 +12,7 @@ namespace DbBox
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public StockList List { get; set; }
+        public virtual StockList List { get; set; }
+        public virtual Sector Sector { get; set; }
     }
 }

@@ -7,6 +7,6 @@ namespace DbBox
         public string Id { get; set; }
         public string Name { get; set; }
         public List<StockList> Lists { get; set; }
-        //public List<Stock> Stocks { get; set; } 
+        public List<Sector> Sectors { get; set; }
     }
 }

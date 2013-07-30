@@ -23,9 +23,14 @@ namespace DbBox
             modelBuilder.Entity<StockList>().HasRequired(x => x.Country);
             modelBuilder.Entity<StockList>().HasMany(x => x.Stocks);
 
+            modelBuilder.Entity<Sector>().HasKey(x => x.Id);
+            modelBuilder.Entity<Sector>().HasRequired(x => x.Country);
+            modelBuilder.Entity<Sector>().HasMany(x => x.Stocks);
+
             modelBuilder.Entity<Stock>().HasKey(x => x.Id);
             modelBuilder.Entity<Stock>().Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            modelBuilder.Entity<Stock>().HasRequired(x => x.List);
+            modelBuilder.Entity<Stock>().HasOptional(x => x.List);
+            modelBuilder.Entity<Stock>().HasOptional(x => x.Sector);
             //modelBuilder.Entity<Stock>().HasRequired(x => x.Country);
             base.OnModelCreating(modelBuilder);
         }
