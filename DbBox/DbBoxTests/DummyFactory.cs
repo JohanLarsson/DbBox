@@ -7,12 +7,7 @@ namespace DbBoxTests
         private static Country _dummyCountry;
         public static Country Country
         {
-            get
-            {
-                if (_dummyCountry == null)
-                    _dummyCountry = new Country { Id = "XX_countryId_XX", Name = "XX_CountryName_XX" };
-                return _dummyCountry;
-            }
+            get { return _dummyCountry ?? (_dummyCountry = new Country(id: "XX_countryId_XX", name: "XX_CountryName_XX")); }
         }
 
         private static StockList _dummyList1;

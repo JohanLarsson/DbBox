@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DbBox;
 using NUnit.Framework;
 
@@ -19,10 +15,11 @@ namespace DbBoxTests
             Clear();
             using (var context = new DummyContext())
             {
-                Stopwatch stopwatch = Stopwatch.StartNew();
-                context.Countries.AddOrUpdate(DummyFactory.Country);
+                context.Countries.Add(DummyFactory.Country);
                 context.SaveChanges();
-                Console.WriteLine("dummyContext.Countries.AddOrUpdate(_country); took: " + stopwatch.ElapsedMilliseconds + " ms");
+            }
+            using (var context = new DummyContext())
+            {
                 Assert.DoesNotThrow(() => context.Countries.Single(x => x.Id == DummyFactory.Country.Id));
             }
         }
@@ -111,11 +108,10 @@ namespace DbBoxTests
                 stopwatch.Restart();
                 using (var dummyContext = new DummyContext())
                 {
-                    dummyContext.Countries.Add(new Country { Id = i.ToString(), Name = i.ToString() });
+                    dummyContext.Countries.Add(new Country(id: i.ToString(), name: i.ToString()));
                     dummyContext.SaveChanges();
                 }
                 Console.WriteLine("Adding {0} took {1} ms", i, stopwatch.ElapsedMilliseconds);
-
             }
         }
 
