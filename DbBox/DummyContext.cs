@@ -11,7 +11,9 @@ namespace DbBox
     {
         public DbSet<Country> Countries { get; set; }
         public DbSet<StockList> StockLists { get; set; }
-        public DbSet<Stock> Stocks { get; set; } 
+        public DbSet<Stock> Stocks { get; set; }
+        public DbSet<Sector> Sectors { get; set; }
+        public DbSet<Tick> Ticks { get; set; } 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -31,6 +33,9 @@ namespace DbBox
             modelBuilder.Entity<Stock>().Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             modelBuilder.Entity<Stock>().HasOptional(x => x.List);
             modelBuilder.Entity<Stock>().HasOptional(x => x.Sector);
+            modelBuilder.Entity<Stock>().HasMany(x => x.Ticks);
+
+            modelBuilder.Entity<Tick>().HasKey(x => new {x.Stock, x.DateTime});
             //modelBuilder.Entity<Stock>().HasRequired(x => x.Country);
             base.OnModelCreating(modelBuilder);
         }

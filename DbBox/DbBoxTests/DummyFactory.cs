@@ -51,6 +51,42 @@ namespace DbBoxTests
             }
         }
 
+        private static Sector _dummySector1;
+        public static Sector Sector1
+        {
+            get { return _dummySector1 ?? (_dummySector1 = new Sector { Country = Country, Id = "XX_Sector1Id_XX", Name = "XX_Sector1Name_XX" }); }
+        }
+
+        private static Sector _dummySector2;
+        public static Sector Sector2
+        {
+            get { return _dummySector2 ?? (_dummySector2 = new Sector { Country = Country, Id = "XX_Sector2Id_XX", Name = "XX_Sector2Name_XX" }); }
+        }
+
+        public static Sector[] Sectors
+        {
+            get { return new[] { Sector1, Sector2 }; }
+        }
+
+        private static Sector[] _sectorsWithStocks;
+        public static Sector[] SectorsWithStocks
+        {
+            get
+            {
+                if (_sectorsWithStocks == null)
+                {
+                    var list1 = Sector1;
+                    list1.Stocks.Add(Stock11);
+                    list1.Stocks.Add(Stock12);
+                    var list2 = Sector2;
+                    list2.Stocks.Add(Stock21);
+                    list2.Stocks.Add(Stock22);
+                    _sectorsWithStocks = new[] { list1, list2 };
+                }
+                return _sectorsWithStocks;
+            }
+        }
+
         private static Stock _stock11;
         public static Stock Stock11
         {

@@ -14,5 +14,12 @@ namespace DbBox
         public string Name { get; set; }
         public virtual StockList List { get; set; }
         public virtual Sector Sector { get; set; }
+
+        private List<Tick> _ticks = new List<Tick>();
+        public List<Tick> Ticks
+        {
+            get { return _ticks; }
+            set { _ticks = value; }
+        }
     }
 }
