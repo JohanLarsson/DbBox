@@ -4,11 +4,7 @@ namespace DbBox
 {
     public class Country
     {
-        public Country()
-        {
-
-        }
-
+        private Country() { }
         public Country(string id, string name)
         {
             Id = id;

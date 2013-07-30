@@ -2,12 +2,15 @@
 
 namespace DbBox
 {
-    public class StockList
+    public class Sector
     {
-        public StockList() {}
+        private Sector()
+        {
+
+        }
         public string Id { get; set; }
         public string Name { get; set; }
-        private readonly HashSet<Stock> _stocks= new HashSet<Stock>();
+        private readonly ISet<Stock> _stocks = new HashSet<Stock>();
         public virtual ISet<Stock> Stocks
         {
             get { return _stocks; }
